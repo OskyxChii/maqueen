@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+  <!-- Navar -->
+{% block contenido %}
+
+
+
+  <!-- Cuerpo -->
+
+  <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="2000">
+        <img src="{% static 'img/slide1.jpg' %}" class="d-block w-100" alt="slide1">
+      </div>
+      <div class="carousel-item" data-bs-interval="2000">
+        <img src="{% static 'img/slide2.jpg' %}" class="d-block w-100" alt="slide2">
+      </div>
+      <div class="carousel-item" data-bs-interval="2000">
+        <img src="{% static 'img/slide3.jpg' %}" class="d-block w-100" alt="slide3">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <!-- Cuerpo -->
+
+  <section class="w-50 mx-auto text-center pt-5" id="intro">
+    <h1 class="p-3 fs-2 border-top border-3">Bienvenidos al taller, <span class="text-warning">Kuchau</span>
+      <h1>
+        <p class="p-3 fs-4">Nuestros Ultimos Trabajos :</p>
+  </section>
+
+  <!-- Carrusel -->
+
+  <section class="container-fluid">
+    <div class="row">
+      <div class="col-6">
+        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="15000">
+              <img src="{% static 'img/auto-1.jpg' %}" class="d-block w-100" alt="slide1">
+            </div>
+            <div class="carousel-item" data-bs-interval="15000">
+              <img src="{% static 'img/auto-2.jpg' %}" class="d-block w-100" alt="slide2">
+            </div>
+            <div class="carousel-item" data-bs-interval="15000">
+              <img src="{% static 'img/auto-3.jpg' %}" class="d-block w-100" alt="slide3">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+      <div class="col-6">
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-warning btn-Light-outline-success" type="button">Buscar</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contactos -->
+  {% endblock contenido %}

@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+
+<link rel="stylesheet" href="{% static 'dist_lb/css/lightbox.min.css' %}">
+
+{% endblock css %}
+
+
+<!-- Cuerpo -->
+{% block contenido %}
+
+<form action="{% url 'filtrot' %}" method="POST">
+{% csrf_token %}
+tipos de vehiculos:
+<select name="cboTipo" id="cboTipo">
+  {% for reg in tipos %}
+      <option value="{{reg.id}}">{{reg.nombre}}</option>
+  {% endfor %}
+
+</select>
+<input class="btn-registro" type="submit" value="Filtrar">
+</form>
+
+<input type="buttom" value="camionetas" ondblclick="camioneta()">
+<script>
+  function camioneta(){
+    location.href='/filtro_id/camioneta/'
+  }
+</script>
+
+<form action="{% url 'filtrot'%}" method="POST">
+{% csrf_token %}
+Palabras clave:
+<input type="text" name="txtPalabras" id="txtPalabras">
+<input class="btn-registro" type="submit" value="Filtrar">
+</select>
+</form>
+
+<section class="container-fluid">
+  <h1 class="text-center">Galería</h1>
+  {%for aut in registros %}
+  <div class="row">
+    <div class="col-4">
+    <a href="{{aut.imagen.url}}" data-lightbox="autos" data-title="Peugeot 504">
+      <img src="{{aut.imagen.url}}" class="img-fluid img-thumbnail rounded float-start" width="80%" height="250px">
+    </a>  
+    <button class="btn-warning btn-Light-outline-success" type="button" onclick="location.href='/Autitos/{{aut.patente}}'">Info</button>
+    <h4>{{aut.nombre}}</h4>
+    </div>
+  {% endfor %}
+  </div>
+</section>
+
+{% endblock contenido %}
+
+    {% block jss %}
+        <script src="{% static 'dist_lb/js/lightbox-plus-jquery.js' %}"></script>
+    {% endblock jss %}
+

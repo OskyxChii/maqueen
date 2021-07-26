@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block contenido %}
+<section id="formulario">
+  <!-- codigo de inicio de formulario -->
+  <form class="form-registro" action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h2 class="form-titulo">Solicitud de Revición</h2>
+
+    <div class="contenedor-input">
+      <input class="col-sm" type="text" name="txtPatente" id="txtPatente" placeholder="ingrese Patente(asd-123)" required minlength="7" maxlength="7">
+      <input class="col-sm" type="text" name="txtAnnio" id="txtAnnio" placeholder="ingrese año del vehiculo" required minlength="4" onkeypress="return (event.charCode >= 48  && event.charCode <= 57)" maxlength="4">
+      <input type="text" name="txtModelo" placeholder="500x" maxlength="25">
+      <textarea name="txtDesc" id="txtDesc" cols="30" rows="10"></textarea>
+      <input type="file" name="txtImg" id="txtImg">
+      <select name="cboTipo" id="cboTipo">
+        {% for item in tipos %}
+        <option>{{item.nombre}}</option>
+        {% endfor %}
+      </select>
+
+      <input class="btn-registro" type="submit" value="Registrar">
+      {{mensaje}}
+    </div>
+    
+  </form>
+
+</section>
+
+ {% endblock contenido %}
+
+{% block jss %}
+
+  <script src="{% static 'js/validaciones.js' %}"></script>
+    
+{% endblock jss %}
+
+
+
+
+
+

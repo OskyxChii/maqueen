@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+<!-- Cuerpo -->
+
+{% block contenido %}
+<section id="formulario">
+  <!-- codigo de inicio de formulario -->
+  <form class="form-registro" action="" method="post" onsubmit="return validar()">
+  {% csrf_token %}
+    <h2 class="form-titulo">Creación de Usuario</h2>
+
+    <div class="contenedor-input">
+      <input class="col-sm" type="text" name="txtNombre" id="txtNombre" placeholder="ingrese nombre " required minlength="5" pattern="[A-Za-z ]{5,15}" title="nombre de entre 5 a 15 caracteres">
+      <input class="col-sm" type="text" name="txtApellido" id="txtApellido" placeholder="ingrese apellido " required minlength="5" pattern="[A-Za-z ]{5,15}" title="apellido de entre 5 a 15 caracteres">
+      <input class="col-sm" type="email" name="txtEmail" id="" placeholder="ingrese email" required minlength="8">
+      <input class="col-sm" type="text" name="txtUsuario" id="" placeholder="ingrese usuario" required minlength="4">
+      <input class="col-sm" type="password" name="txtPassword1" id="" placeholder="Ingrese Contraseña" required minlength="8">
+      <input class="col-sm" type="password" name="txtPassword2" id="" placeholder="Verifique contraseña" required minlength="0"> 
+
+      <input class="btn-registro" type="submit" value="Registrar">
+    </div>
+  </form>
+
+</section>
+
+<!-- Contactos -->
+  {% endblock contenido %}
+
+  {% block jss %}
+    <script>
+      function validar(){
+        var p1 = document.getElementById("txtPassword1").value;
+        var p2 = document.getElementById("txtPassword2").value;
+        if(p1!=p2){
+          alert("La Contraseñas no cohinciden")
+          return false
+        } 
+        return true;
+      }
+    </script>
+
+  {% endblock jss %}
